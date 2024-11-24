@@ -729,3 +729,17 @@ button:hover {
         font-size: 12px;
     }
 }
+
+.menu {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    z-index: 1000;
+    transition: transform 0.3s ease; /* Transição suave */
+}
+
+.menu {
+    transform: translateY(-100%); /* Move o menu para fora da tela */
+}
