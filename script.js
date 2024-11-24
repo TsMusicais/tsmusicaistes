@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', initializeSearchEvents);
 
 
 // Seleciona a barra de navegação
-const navbar = document.querySelector('.navbar');
+const navbar = document.querySelector('menu');
 
 // Função para adicionar/remover a classe
 function handleScroll() {
@@ -213,3 +213,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
   });
 });
+
+<script>
+    let lastScrollY = 0;
+    const navbar = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY) {
+            // Se o usuário está rolando para baixo
+            navbar.classList.add('hidden');
+        } else {
+            // Se o usuário está rolando para cima
+            navbar.classList.remove('hidden');
+        }
+
+        lastScrollY = currentScrollY;
+    });
+</script>
