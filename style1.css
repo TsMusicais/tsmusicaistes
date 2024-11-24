@@ -1,0 +1,732 @@
+   
+
+   
+   
+   
+   /* Importação das fontes */
+@import url('https://fonts.cdnfonts.com/css/bakul-nasi');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/georgia');
+@import url('https://fonts.cdnfonts.com/css/outreque-black');
+
+
+
+/* Reseta margens, preenchimentos e configura o box-sizing para todos os elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Definição de variáveis de cor */
+:root {
+    --primary-color: #614789;
+    --secondary-color: #ffffff;
+    --background-color: #f3f3f3;
+    --text-color: #000000;
+    --footer-background-color: #181818;
+    --footer-text-color: #b3b3b3;
+}
+
+/* Estilos para o body */
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color:  #C7A8DD ;
+    
+    color: var(--text-color);
+    
+}
+
+/* Estilo para a imagem do botão de pesquisa */
+#search-button img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Estilo para a barra de navegação */
+/* Remove marcadores e padding das listas não ordenadas */
+.nav-links, .dropdown {
+    list-style-type: none; /* Remove os marcadores */
+    padding: 0; /* Remove o preenchimento padrão */
+    margin: 0; /* Remove a margem padrão */
+}
+
+/* Estilo para os itens de lista na navegação */
+.nav-links li, .dropdown li {
+    display: inline; /* Alinha os itens horizontalmente */
+    margin: 0; /* Remove a margem padrão */
+    padding: 0; /* Remove o preenchimento padrão */
+}
+
+/* Estilo para links dentro das listas */
+.nav-links a, .dropdown a {
+    display: inline-block; /* Garante que o link seja um bloco inline */
+    text-decoration: none; /* Remove o sublinhado dos links */
+    padding: 10px; /* Adiciona preenchimento ao redor dos links */
+    color: #fff; /* Define a cor do texto dos links */
+    transition: color 0.3s; /* Adiciona uma transição suave na cor */
+}
+
+.nav-links a:hover, .dropdown a:hover {
+    color: #614789; /* Cor do texto dos links ao passar o mouse */
+}
+
+/* Estilo para o dropdown dos serviços */
+.services {
+    position: relative;
+}
+
+
+
+
+/* Estilo para o logotipo */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px; /* Diminuição do padding */
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.navbar.scrolled {
+    
+        position: fixed; /* Fixa o menu no topo */
+        top: 0; /* Fica no topo */
+        left: 0;
+        right: 0;
+        transition: background-color 0.3s, box-shadow 0.3s; /* Transição suave */
+        background-color: #614789ce; /* Fundo semi-transparente */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+        z-index: 1000; /* Para garantir que fique acima de outros elementos */
+    }
+    
+
+
+/* Estilos para o logotipo */
+/* Define a animação de rotação */
+/* Define a animação de rotação */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Aplica a animação ao elemento com a classe logo */
+.logo {
+    display: inline-block; /* Garante que a animação funcione corretamente */
+    animation: spin 4s linear infinite; /* Aplica a animação */
+    transform-origin: center; /* Ajusta o ponto de origem da rotação para o centro */
+}
+
+/* Se você quiser ajustar a largura e a altura do disco */
+.logo img {
+    width: 50px; /* Ajuste conforme necessário */
+    height: auto; /* Mantém a proporção da imagem */
+}
+
+
+/* Estilo para o menu de navegação */
+.menu {
+    display: flex;
+    gap: 2em;
+    font-size:  26.4px; /* Diminua o tamanho da fonte */
+    font-weight: 1000;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-right: auto;
+    
+}
+
+.menu li:hover {
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.menu li {
+    padding: 5px 14px;
+    z-index: 1000;
+}
+
+/* Estilo para o dropdown dos serviços */
+.services {
+    position: relative;
+}
+
+.dropdown {
+    background: #614789d7;
+    padding: 1em 0;
+    position: absolute;
+    display: none;
+    border-radius: 8px;
+    top: 65px;
+    z-index: 9999; /* Define o z-index para um valor alto */
+    margin-left: -10px;
+  }
+
+.dropdown li + li {
+    margin-top: 10px;
+}
+
+.dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+}
+
+.dropdown li:hover {
+    background-color: var(--secondary-color);
+}
+
+.services:hover .dropdown {
+    display: block;
+}
+
+/* Estilos para a barra de pesquisa */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+
+#search-input {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50px;
+    width: 0;
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.4s ease;
+}
+
+#search-button img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.search-container:hover #search-input {
+    width: 200px;
+    opacity: 1;
+    padding: 10px 20px;
+}
+
+.search-container:hover #search-button img {
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.search-container.active #search-input {
+    width: 200px;
+    opacity: 1;
+    padding: 10px 20px;
+}
+
+
+/* Estilos para o layout de duas colunas */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.267);
+    max-width: 2000px; /* ajuste a largura máxima para o tamanho desejado */
+    margin: 0 auto; /* centralize a div */
+}
+
+.left-column {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    background-color: #fff;
+    padding: 20px;
+   
+    font-family: 'Georgia', sans-serif;
+    font-size: 22px;
+    
+   
+    
+    
+}
+
+
+.left-column img {
+   max-width: 50%;
+    height: 500px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+ 
+}
+
+
+
+/* Estilo para o título e parágrafos na coluna esquerda */
+.left-column h1 {
+    margin-top: 0;
+    font-size: 2em;
+    text-align: center;
+}
+
+.left-column p {
+    line-height: 1.6;
+    font-size: 26px;
+}
+
+/* Estilos para a seção adicional */
+.additional-section {
+    background-color: #a5896e46;
+    padding: 20px;
+    text-align: center;
+    font-family: 'Bakul Nasi', sans-serif;
+    font-size: 20px;
+    line-height: 2.0em;
+}
+
+.additional-section h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+.additional-section p {
+    line-height: 1.6;
+}
+
+/* Estilo para o separador */
+.separator {
+    height: 2px;
+    background: linear-gradient(to right, #000000, #000000, #000000);
+    margin: 20px 0;
+}
+
+/* Estilo para os botões */
+.button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    background-color: #614789;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    color: #614789;
+}
+
+/* Estilo para as colunas pequenas */
+.small-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  
+    max-width: 2000px; /* ajuste a largura máxima para o tamanho desejado */
+    margin: 0 auto; /* centralize a div */
+    
+}
+
+.small-column {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    background-color: #fff;
+    padding: 20px;
+   
+    font-family: 'Georgia', sans-serif;
+    font-size: 22px;
+    
+    
+    
+    
+}
+
+.small-column img {
+    max-width: 50%;
+    height: 500px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 4px 8px rgb(0, 0, 0);
+}
+
+.text {
+    flex: 2;
+}
+
+.text h3 {
+    color: #000000; /* Substitua pelo código hexadecimal da cor desejada */
+    transition: color 0.5s ease; /* Transição suave para a mudança de cor */
+}
+
+.text p {
+    color:#000000; /* Substitua pelo código hexadecimal da cor desejada */
+    transition: color 0.5s ease; /* Transição suave para a mudança de cor */
+}
+
+
+
+.text h3 {
+    margin-top: 0;
+    font-size: xx-large;
+    font-size:  3.25rem; /*50px;*/
+    
+    
+}
+
+.text p {
+    line-height: 1.6;
+    font-size: 1.75rem; /* 26px -> 1.625rem */
+}
+
+
+
+/* Estilos específicos para algumas classes */
+.l {
+    color: #fff;
+    text-decoration: none;
+    font-size: 35px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.p {
+    line-height: 80px;
+    color: rgb(0, 0, 0);
+    padding: 5px 40px;
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 55px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: left;
+}
+
+.m {
+    margin-left: 450px;
+    display: flex;
+}
+
+.r {
+    line-height: 80px;
+    color: #fff;
+    padding: 5px 40px;
+    font-size: 45px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 250px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+#linha-vertical2 {
+    height: 100px;
+    border-left: 1px solid black;
+    margin-left: 80px;
+}
+
+.texto3 {
+    margin-top: 100px;
+    position: absolute;
+    color: black;
+    font-family: Impact, fantasy;
+    padding-left: 30px;
+}
+
+#linha-vertical3 {
+    height: 100px;
+    border-left: 1px solid black;
+    margin-left: 80px;
+}
+
+.ajuste {
+    padding-left: 700px;
+}
+
+/* Estilo para botões específicos */
+button:hover {
+    box-shadow: 0 0 3px #222;
+}
+
+#btnCalcular {
+    background: #1a237e;
+}
+
+#btnLimpar {
+    background: #ff0000;
+}
+
+.form-group button {
+    color: #fff;
+    border: 0;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para a imagem de fundo */
+.sobreimg {
+    border-top: 200px black;
+    width: 2000px;
+    height: 350px;
+}
+
+/* Estilo para o texto sobre a imagem */
+.texto {
+    position: absolute;
+    margin-top: -150px;
+    color: white;
+    font-family: Impact, fantasy;
+    padding-left: 30px;
+}
+
+#linha-vertical {
+    height: 100px;
+    border-left: 1px solid white;
+    margin-left: 80px;
+}
+
+/* Estilo para o container com borda */
+.bor {
+    padding: 48px;
+    height: 550px;
+    width: 100%;
+    border-radius: 16px;
+    margin: 2rem auto;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(8, 7, 16);
+    background-color: rgba(255, 255, 255, 0.13);
+}
+
+/* Estilos para o rodapé */
+.footer {
+  background-color: #614789;
+  color: #b3b3b3;
+  padding: 40px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-column h4 {
+  color: #fff;
+  font: bold;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #d1d1d1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-column ul li a:hover {
+  color: #ee97ff;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+  margin-top: 40px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #fff;
+  font: bold;
+  font-size:  0.875rem; /*14px;*/
+}
+
+/* Estilo para o contêiner da imagem desfocada */
+.blurred-image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 350px; /* Ajuste a altura conforme necessário */
+}
+
+/* Estilo para a imagem desfocada */
+.blurred-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0px); /* Ajuste o valor do desfoque conforme necessário */
+    transform: scale(1.1); /* Aumenta ligeiramente o tamanho para evitar bordas visíveis */
+}
+
+/* Estilos para o contêiner de texto sobre a imagem */
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 20px; /* Adiciona um pouco de preenchimento ao redor do texto */
+    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para melhorar o contraste */
+    border-radius: 10px; /* Bordas arredondadas para um visual mais suave */
+    
+    
+}
+
+.text-overlay h1 {
+    font-size: 3em; /* Tamanho do título */
+    font-weight: bold;
+    margin: 0;
+}
+
+
+
+.accessibility-controls {
+    position: fixed;
+    top: 55%;
+    right: 10px;
+    background-color: #457bcc;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column; /* Coloca os botões em coluna */
+    align-items: center; /* Centraliza horizontalmente os botões */
+    gap: 12px;
+    z-index: 1000;
+}
+
+.accessibility-controls button {
+    background-color: #ffffff;
+    color: #080808;
+    border: none;
+    margin: 0 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.accessibility-controls button:hover {
+    background-color: #666;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Ajusta o body para ocupar toda a largura */
+    body {
+        padding: 0;
+        margin: 0;
+    }
+
+    /* Centraliza e reduz o tamanho do logo */
+    .logo img {
+        width: 40px; /* Reduz o tamanho do logo */
+        height: auto;
+        margin: 0 auto;
+    }
+
+    /* Alinha o menu verticalmente */
+    .menu {
+        flex-direction: column;
+        gap: 1em;
+        font-size: 20px; /* Ajusta o tamanho da fonte */
+    }
+
+    /* Ajusta o dropdown */
+    .dropdown {
+        position: static;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    /* Ajusta a barra de pesquisa */
+    .search-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #search-input {
+        width: 100%;
+        opacity: 1; /* Sempre visível */
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #search-button img {
+        width: 20px;
+        height: 20px;
+        margin: 0 auto;
+    }
+
+    /* Ajusta as colunas pequenas */
+    .small-columns {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .small-column {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .small-column img {
+        width: 100%; /* Ocupa toda a largura disponível */
+        height: auto; /* Mantém a proporção */
+    }
+
+    .text {
+        text-align: center; /* Centraliza o texto */
+    }
+
+    /* Ajusta o rodapé */
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+}
