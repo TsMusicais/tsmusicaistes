@@ -651,82 +651,81 @@ button:hover {
     background-color: #666;
 }
 
-/* Ajustes para dispositivos móveis */
-@media (max-width: 768px) {
-    /* Ajusta o body para ocupar toda a largura */
+/* Responsividade para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    /* Ajuste para o body */
     body {
-        padding: 0;
-        margin: 0;
+        font-size: 14px; /* Reduz o tamanho geral da fonte */
     }
 
-    /* Centraliza e reduz o tamanho do logo */
-    .logo img {
-        width: 40px; /* Reduz o tamanho do logo */
-        height: auto;
-        margin: 0 auto;
+    /* Ajuste para a barra de navegação */
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    /* Alinha o menu verticalmente */
     .menu {
         flex-direction: column;
-        gap: 1em;
-        font-size: 20px; /* Ajusta o tamanho da fonte */
+        gap: 10px;
+        font-size: 18px; /* Diminui o tamanho das fontes do menu */
     }
 
-    /* Ajusta o dropdown */
-    .dropdown {
-        position: static;
-        margin: 0;
-        border-radius: 0;
-    }
-
-    /* Ajusta a barra de pesquisa */
     .search-container {
-        flex-direction: column;
-        align-items: stretch;
+        width: 100%;
+        justify-content: center;
     }
 
     #search-input {
         width: 100%;
-        opacity: 1; /* Sempre visível */
-        padding: 10px;
-        font-size: 14px;
     }
 
-    #search-button img {
-        width: 20px;
-        height: 20px;
-        margin: 0 auto;
-    }
-
-    /* Ajusta as colunas pequenas */
-    .small-columns {
+    /* Ajuste para colunas */
+    .small-columns, .container {
         flex-direction: column;
         gap: 20px;
     }
 
     .small-column {
         flex-direction: column;
-        gap: 10px;
+        gap: 20px;
     }
 
     .small-column img {
-        width: 100%; /* Ocupa toda a largura disponível */
-        height: auto; /* Mantém a proporção */
+        width: 100%; /* Garante que a imagem ocupe toda a largura disponível */
+        height: auto; /* Ajusta a altura proporcionalmente */
     }
 
     .text {
-        text-align: center; /* Centraliza o texto */
+        text-align: center; /* Centraliza o texto para dispositivos menores */
     }
 
-    /* Ajusta o rodapé */
+    .text h3 {
+        font-size: 1.8rem; /* Ajuste do tamanho do título */
+    }
+
+    .text p {
+        font-size: 1.4rem; /* Ajuste do tamanho do texto */
+        line-height: 1.4; /* Ajuste do espaçamento entre linhas */
+    }
+
+    /* Ajuste para o rodapé */
     .footer-container {
         flex-direction: column;
         align-items: center;
         gap: 20px;
     }
 
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
     .footer-column {
         text-align: center;
+    }
+
+    .footer-bottom {
+        text-align: center;
+        font-size: 12px;
     }
 }
